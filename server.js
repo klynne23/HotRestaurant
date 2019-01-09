@@ -54,6 +54,18 @@ app.get("/api/all", function(req, res) {
     res.json(tables);
 });
 
+// show JSON object page for waiting
+app.get("/api/wait", function(req, res) {
+    let waiting = [];
+    for (i = 0; i < tables.length; i ++) {
+        if (tables[i].status == 'waiting' || tables[i].status == '') {
+            waiting.push(tables[i]);
+        }
+    };
+    res.json(waiting);
+});
+
+
 var assignReservations = function() {
     for (i = 0; i < tables.length; i++) {
         if (i <= 5) {
