@@ -55,8 +55,26 @@
               </div>
 
               <div class="form-group">
-                <label for="party-size">Party Size</label>
-                <input type="text" class="form-control" id="unique-id">
+                  <div class="input-group mb-3">
+                      <div class="input-group-append">
+                          <label class="input-group-text" for="inputGroupSelect02">Party Size</label>
+                      </div>
+                    <select class="custom-select" id="party-size">
+                      <option selected>How many in your party?</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                <!-- <label for="party-size">Party Size</label> -->
+                <!-- <input type="text" class="form-control" id="unique-id"> -->
               </div>
               <!-- Submit button inside form -->
               <button type="submit" class="btn btn-primary btn-md" id="add-btn">
@@ -89,8 +107,10 @@
         name: $("#name").val().trim(),
         role: $("#phone-number").val().trim(),
         age: $("#email").val().trim(),
-       partySize: $("#party-size").val().trim()
+        partySize: $("#party-size").val().trim(),
+        status: ""
       };
+      console.log($("#party-size").val());
       //Question: What does this code do??
       $.post("/api/tables", newReservation)
         .then(function(data) {
