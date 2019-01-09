@@ -16,10 +16,10 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Hot Restaurant</h1>
+      <h1><span class="fa fa-fire"></span>Hot Restaurant</h1>
       <h3>Current Reservations and Waiting List</h3>
       <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>Make Reseravation</button></a>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>Make Reservation</button></a>
       <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span>Home</button></a>
     </div>
     <div class="row">
@@ -49,15 +49,14 @@
                 </div>
                 
               </div>
+              <br>
               <div class="row">
                     <div class="col-lg-12">
                         <p>
                         <a href="">API Table Link</a>
                         |
                         <a href="">API Wait List</a>
-                      </p>
-                       
-                        
+                      </p>  
                     </div>
           </div>
       </div>
@@ -69,12 +68,10 @@
         for (var i = 0; i < data.length; i++) {
           console.log(data[i]);
           var listGroupItem = $("<li class='list-group-item'>");
-
           listGroupItem.append($("<h2>").text("Name: " + data[i].name));
           listGroupItem.append($("<h3>").text("Phone Number: " + data[i].phoneNumber));
           listGroupItem.append($("<h3>").text("Email: " + data[i].email));
-          listGroupItem.append($("<h3>").text("Unique ID: " + data[i].uniqueID));
-
+          listGroupItem.append($("<h3>").text("Party Size: " + data[i].partySize));
           $("#tables-section").append(listGroupItem);
         }
       });
