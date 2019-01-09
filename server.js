@@ -60,6 +60,19 @@ app.get("/api/all", function(req, res) {
     res.json(tables);
 });
 
+var assignReservations = function() {
+    for (i = 0; i < tables.length; i++) {
+        if (i <= 5) {
+            tables[i].status += "confirmed";
+        } else if (i > 5) {
+            tables[i].status += "waiting";
+        }
+    }
+}
+
+assignReservations();
+console.log(tables);
+
 app.post("/add/reservation", function (req, res) {
 
     var newReservation = req.body;
