@@ -41,16 +41,23 @@ console.log(tables);
 // setup routes
 
 // homepage route
-
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
 
-
 // show adding reservations page
-
-app.get("/api/add", function(req, res) {
+app.get("/add", function(req, res) {
     res.sendFile(path.join(__dirname, "add.html"))
+});
+
+// show all (tables) page
+app.get("/all", function(req, res) {
+    res.sendFile(path.join(__dirname, "all.html"))
+});
+
+// show JSON object page for all (tables)
+app.get("/api/all", function(req, res) {
+    res.json(tables);
 });
 
 // start server
