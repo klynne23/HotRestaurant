@@ -14,7 +14,14 @@ app.use(express.json());
 
 var tables = [
     {
-        name: "susie earlybird",
+        name: "0 earlybird",
+        phoneNumber: "8675-309",
+        email: "susie@gmail.com",
+        partySize: "5",
+        status: ""
+    },
+    {
+        name: "1 earlybird",
         phoneNumber: "8675-309",
         email: "susie@gmail.com",
         partySize: "5",
@@ -22,19 +29,6 @@ var tables = [
     }
 ]
 
-var counter = 1;
-
-if (counter <= 5) {
-    for (var i = 0; i < tables.length; i++) {
-        tables[i].status == "seated";
-    }
-    counter++;
-} else {
-    for (var i = 5; i < tables.length; i++) {
-        tables[i].status == "waiting";   
-    }
-    counter++;
-}
 
 console.log(tables);
 
@@ -60,6 +54,8 @@ app.get("/api/all", function(req, res) {
     res.json(tables);
 });
 
+// 
+
 app.post("/add/reservation", function (req, res) {
 
     var newReservation = req.body;
@@ -73,7 +69,31 @@ app.post("/add/reservation", function (req, res) {
     tables.push(newReservation);
 
     res.json(newReservation);
+
+    // waiting list equation
+    
+    console.log(newReservation.status);
+
+
+    assignReservations();
+
 });
+
+
+var assignReservations = function() {
+    for (i = 0; i < tables.length; i++) {
+        if (i <= 4) {
+            tables[i].status = "confirmed";
+        } else if (i > 4) {
+            tables[i].status = "waiting";
+        }
+    }
+}
+
+assignReservations();
+console.log(tables);
+
+
 // start server
 app.listen(PORT, function() {
     console.log("Server is running");
