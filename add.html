@@ -58,12 +58,13 @@
                 <label for="unique-id">Unique ID</label>
                 <input type="text" class="form-control" id="unique-id">
               </div>
-
+              <!-- Submit button inside form -->
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                <span class="fa fa-fire"></span> Submit</button>
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn">
-                <span class="fa fa-fire"></span> Submit</button>
+
             </div>
           </div>
         </div>
@@ -84,24 +85,22 @@
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
-
       var newReservation = {
         name: $("#name").val().trim(),
-        role: $("#phonr-number").val().trim(),
+        role: $("#phone-number").val().trim(),
         age: $("#email").val().trim(),
         forcePoints: $("#unique-id").val().trim()
       };
-
-      // Question: What does this code do??
+      //Question: What does this code do??
       $.post("/api/tables", newReservation)
         .then(function(data) {
           console.log(data);
-          alert("Adding reservation...");
+          location.href = "./view.html";
         });
-
     });
 
   </script>
+
 </body>
 
 </html>
