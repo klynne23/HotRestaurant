@@ -53,6 +53,13 @@ app.get("/api/add", function(req, res) {
     res.sendFile(path.join(__dirname, "add.html"))
 });
 
+// api tables
+
+app.get("/api/tables", function(req, res) {
+    res.json(tables);
+})
+
+
 // start server
 app.listen(PORT, function() {
     console.log("Server is running");
