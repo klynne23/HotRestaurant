@@ -1,12 +1,17 @@
 {
   "name": "HotRestaurant",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Hot Restaurant",
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4"
   },
   "devDependencies": {},
+=======
+  "description": "Restaurant App",
+  "main": "index.js",
+>>>>>>> 5b130b88b5d3baf27cfca412326239a1c1cb2e1c
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +25,13 @@
   "bugs": {
     "url": "https://github.com/klynne23/HotRestaurant/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/klynne23/HotRestaurant#readme"
+=======
+  "homepage": "https://github.com/klynne23/HotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+>>>>>>> 5b130b88b5d3baf27cfca412326239a1c1cb2e1c
 }
