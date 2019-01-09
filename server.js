@@ -12,23 +12,31 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-var reservations = [
+var tables = [
     {
         name: "susie earlybird",
         phoneNumber: "8675-309",
         email: "susie@gmail.com",
-        partySize: "5"
+        partySize: "5",
+        status: ""
     }
 ]
 
-var waitingList = [
-    {
-        name: "jared nielson",
-        phoneNumer: "555-555-5551",
-        email: "jared@jared.com",
-        partySize: "1"
+var counter = 1;
+
+if (counter <= 5) {
+    for (var i = 0; i < tables.length; i++) {
+        tables[i].status == "seated";
     }
-]
+    counter++;
+} else {
+    for (var i = 5; i < tables.length; i++) {
+        tables[i].status == "waiting";   
+    }
+    counter++;
+}
+
+console.log(tables);
 
 // setup routes
 
@@ -38,7 +46,12 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
 
-// api tables
+
+// show adding reservations page
+
+app.get("/api/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "add.html"))
+});
 
 // start server
 app.listen(PORT, function() {
