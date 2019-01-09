@@ -89,7 +89,7 @@
         name: $("#name").val().trim(),
         role: $("#phone-number").val().trim(),
         age: $("#email").val().trim(),
-        forcePoints: $("#party-size").val().trim()
+       partySize: $("#party-size").val().trim()
       };
       //Question: What does this code do??
       $.post("/api/tables", newReservation)
