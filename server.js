@@ -60,6 +60,20 @@ app.get("/api/all", function(req, res) {
     res.json(tables);
 });
 
+app.post("/add/reservation", function (req, res) {
+
+    var newReservation = req.body;
+    newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
+    newReservation.phoneNumber = newReservation.phoneNumber.replace(/\s+/g, "").toLowerCase();
+    newReservation.email = newReservation.email.replace(/\s+/g, "").toLowerCase();
+    newReservation.partySize = newReservation.partySize.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newReservation);
+
+    tables.push(newReservation);
+
+    res.json(newReservation);
+});
 // start server
 app.listen(PORT, function() {
     console.log("Server is running");

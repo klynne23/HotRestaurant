@@ -19,7 +19,7 @@
       <h1><span class="fa fa-fire"></span>Hot Restaurant</h1>
       <h3>Make your reservation</h3>
       <hr>
-      <a href="/api/tables">
+      <a href="/all">
         <button class="btn btn-danger btn-lg">
           <span class="fa fa-eye"></span>View Tables</button>
       </a>
@@ -105,17 +105,17 @@
       event.preventDefault();
       var newReservation = {
         name: $("#name").val().trim(),
-        role: $("#phone-number").val().trim(),
-        age: $("#email").val().trim(),
+        phoneNumber: $("#phone-number").val().trim(),
+        email: $("#email").val().trim(),
         partySize: $("#party-size").val().trim(),
         status: ""
       };
       console.log($("#party-size").val());
       //Question: What does this code do??
-      $.post("/api/tables", newReservation)
+      $.post("/add/reservation" , newReservation)
         .then(function(data) {
           console.log(data);
-          location.href = "./view.html";
+          location.href = "/";
         });
     });
 
